@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.im4j.dotindicator.viewpager.LoopViewPager
+        android:id="@+id/loopviewpager"
+        android:layout_width="match_parent"
+        android:layout_height="100dip"/>
+    <com.im4j.dotindicator.LineIndicator
+        android:id="@+id/loopviewpager_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/loopviewpager"
+        android:layout_centerHorizontal="true"/>
+
+
+    <com.im4j.dotindicator.viewpager.AutoViewPager
+        android:id="@+id/autoviewpager"
+        android:layout_width="match_parent"
+        android:layout_height="100dip"
+        android:layout_below="@id/loopviewpager"
+        android:layout_marginTop="20dip"/>
+    <com.im4j.dotindicator.LineIndicator
+        android:id="@+id/autoviewpager_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/autoviewpager"
+        android:layout_centerHorizontal="true"/>
+
+</RelativeLayout>

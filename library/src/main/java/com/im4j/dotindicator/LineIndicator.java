@@ -167,10 +167,10 @@ public class LineIndicator extends View {
             float x = startX + (mIndicatorMargin + mIndicatorRadius*2)*i;
 
             ShapeHolder item = tabItems.get(i);
-            item.setColor(mIndicatorBackground);
             if (i == currentPosition) {
-                if ((targetPosition == 0 && currentPosition == tabItems.size() - 1)
-                        || (targetPosition == tabItems.size() - 1 && currentPosition == 0)) {
+                if ((targetPosition == 0 && currentPosition == tabItems.size() - 1)) {
+                    offset = offset * (1 - currentPositionOffset);
+                } else if ((targetPosition == tabItems.size() - 1 && currentPosition == 0)) {
                     offset = offset * currentPositionOffset;
                 } else if (targetPosition > currentPosition) {
                     offset = offset * (1 - currentPositionOffset);
@@ -180,8 +180,9 @@ public class LineIndicator extends View {
                 width = width + offset;
                 startX += offset;
             } else if (i == targetPosition) {
-                if ((targetPosition == 0 && currentPosition == tabItems.size() - 1)
-                        || (targetPosition == tabItems.size() - 1 && currentPosition == 0)) {
+                if ((targetPosition == 0 && currentPosition == tabItems.size() - 1)) {
+                    offset = offset * currentPositionOffset;
+                } else if ((targetPosition == tabItems.size() - 1 && currentPosition == 0)) {
                     offset = offset * (1 - currentPositionOffset);
                 } else if (targetPosition > currentPosition) {
                     offset = offset * currentPositionOffset;
@@ -192,6 +193,8 @@ public class LineIndicator extends View {
                 startX += offset;
             }
 
+
+            item.setColor(mIndicatorBackground);
             if (width > 3 * mIndicatorRadius) {
                 item.setColor(mIndicatorSelectedBackground);
             }
